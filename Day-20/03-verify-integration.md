@@ -44,3 +44,10 @@ kubectl exec busybox-secrets-store-inline-wi -- ls /mnt/secrets-store/
 ```
 kubectl exec busybox-secrets-store-inline -- cat /mnt/secrets-store/foo-secret
 ```
+
+### For Windows Git Bash, MSYS_NO_PATHCONV=1 prevents Git Bash from rewriting the /mnt/... path.
+
+```
+MSYS_NO_PATHCONV=1 kubectl exec busybox-secrets-store-inline-wi -- sh -c 'ls /mnt/secrets-store'
+MSYS_NO_PATHCONV=1 kubectl exec busybox-secrets-store-inline-wi -- sh -c 'cat /mnt/secrets-store/<secret-name>'
+```
